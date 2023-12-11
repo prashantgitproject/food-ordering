@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import UserTabs from '@/components/layout/UserTabs'
+import EditableImage from '@/components/layout/EditableImage'
 
 export default function ProfilePage() {
     const session = useSession()
@@ -71,18 +72,6 @@ export default function ProfilePage() {
       return redirect('/login')
     }
 
-    async function handleFileChange(ev){
-        const files = ev.target.files;
-        if(files?.length === 1){
-            const data = new FormData;
-            data.set('file', files[0]);
-            await fetch('/api/upload', {
-                method: 'POST',
-                body: data
-            })
-        }
-    }
-
     const userImage = session.data.user.image;
   return (
     <section className="mt-8">
@@ -91,13 +80,7 @@ export default function ProfilePage() {
             <div className='flex gap-4 '>
                 <div>
                     <div className='p-2 rounded-lg relative max-w-[120px]'>
-                        <Image className='rounded-lg h-full w-full mb-1' src={userImage} alt='Avatar' width={250} height={250}/>
-                        <label>
-                            <input type="file" className='hidden' onChange={handleFileChange}/>
-                            <span className='block text-center rounded-lg border border-gray-300 p-2 cursor-pointer'>
-                                Edit
-                            </span>
-                        </label>
+                        <EditableImage link={userImage}/>
                     </div>
                 </div>
                 <form className='grow' onSubmit={handleProfileInfoUpdate}>
