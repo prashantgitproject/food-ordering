@@ -51,7 +51,7 @@ const image = '/pizza.png';
                          className="bg-gray-200 p-4 rounded-lg">
                             <div className="relative">
                                 <Image className="rounded-md"
-                                 src={''} alt="" width={200} height={200}/>
+                                 src={image} alt="" width={200} height={200}/>
                             </div>
                             <div className="text-center">
                             {item.name}
