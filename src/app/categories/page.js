@@ -76,7 +76,7 @@ export default function CategoriesPage(){
     }
 
     if(profileLoading){
-        return 'Loading User Info...'
+        return 'Loading Categories...'
     }
     if(!profileData.admin){
         return 'Not an Admin'
@@ -112,8 +112,7 @@ export default function CategoriesPage(){
             <div>
                 <h2 className="mt-8 text-sm text-gray-500">Existing category:</h2>
                 {categories?.length > 0 && categories.map(c => (
-                    <>
-                    <div 
+                    <div key={c._id}
                      className="bg-gray-100 rounded-lg p-2 px-4 flex gap-1 mb-1 items-center">
                         <div 
                         className="grow"> 
@@ -126,7 +125,6 @@ export default function CategoriesPage(){
                         <DeleteButton label='Delete' onDelete={() => handleDeleteClick(c._id)}/>
                     </div>
                     </div>
-                    </>
                 ))}
             </div>
         </section>

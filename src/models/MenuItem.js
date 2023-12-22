@@ -6,6 +6,7 @@ const ExtraPriceSchema = new Schema({
 })
 
 const MenuItemsSchema = new Schema({
+    image: {type:String},
     name: {type: String},
     description: {type: String},
     category: {type: mongoose.Types.ObjectId},

@@ -17,7 +17,7 @@ export default function EditableImage({link}){
     return(
         <>
         {link && (
-            <Image className='rounded-lg h-full w-full mb-1' src={link} alt='Avatar' width={250} height={250}/>
+            <img className='rounded-lg h-full w-full mb-1' src={link} alt='Avatar' width={250} height={250}/>
         )}
         {!link && (
             <div className="bg-gray-200 p-4 text-gray-500 rounded-lg mb-1 text-center">

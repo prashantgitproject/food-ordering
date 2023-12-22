@@ -24,14 +24,13 @@ useEffect(()=>{
 
 
 if(loading){
-    return 'Loading user info...'
+    return 'Loading Menu Items...'
 }
 
 if(!data.admin){
     return 'Not an admin.'
 }
 
-const image = '/pizza.png';
 
     return(
         <section className="mt-8 max-w-2xl mx-auto">
@@ -47,11 +46,12 @@ const image = '/pizza.png';
                 <h2 className="text-sm text-gray-500 mt-8">Edit menu items</h2>
                 <div className="grid grid-cols-3 gap-2">
                     {menuItems?.length > 0 && menuItems.map(item => (
-                        <Link href={'/menu-items/edit/' + item._id}
+                        <Link key={item._id}
+                         href={'/menu-items/edit/' + item._id}
                          className="bg-gray-200 p-4 rounded-lg">
                             <div className="relative">
-                                <Image className="rounded-md"
-                                 src={image} alt="" width={200} height={200}/>
+                                <img className="rounded-md" src={item.image || '/pizza.png'}
+                                  alt="" />
                             </div>
                             <div className="text-center">
                             {item.name}

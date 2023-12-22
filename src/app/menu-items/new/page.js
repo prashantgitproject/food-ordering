@@ -49,7 +49,6 @@ export default function NewMenuItemPage(){
         return 'Not an Admin'
     }
 
-    const image = '/pizza.png';
     return(
         <section className="mt-8">
             <UserTabs isAdmin={true}/>

@@ -25,7 +25,7 @@ export default function UserForm({user, onSave}) {
 
     const userImage = user?.image || null; 
   return (
-    <div className='flex gap-4 '>
+    <div className='md:flex gap-4 '>
                 <div>
                     <div className='p-2 rounded-lg relative max-w-[120px]'>
                         <EditableImage link={userImage}/>
@@ -42,7 +42,7 @@ export default function UserForm({user, onSave}) {
                     {loggedInUserData.admin && (
                         <div>
                             <label className='p-2 inline-flex items-center gap-2 mb-2' htmlFor='adminCB'>
-                                <input value={'1'} checked={admin} onClick={ev => setAdmin(ev.target.checked)}
+                                <input value={'1'} checked={admin} onChange={ev => setAdmin(ev.target.checked)}
                                 id='adminCB' type="checkbox" className=''/>
                                 <span>Admin</span>
                             </label>
