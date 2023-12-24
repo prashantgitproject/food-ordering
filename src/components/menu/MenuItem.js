@@ -57,7 +57,7 @@ export default function MenuItem(menuItem) {
     {showPopup && (
       <div onClick={() => setShowPopup(false)} className="fixed inset-0 bg-black/80 flex items-center justify-center">
         <div onClick={ev => ev.stopPropagation()} className="my-8 bg-white p-2 rounded-lg max-w-md">
-          <div className="overflow-y-scroll p-2" style={{maxHeight: 'calc(100vh -100px)'}}>
+          <div className="overflow-y-scroll p-2" style={{maxHeight:'calc(100vh - 100px)'}}>
             <img className="mx-auto"
             src={image || '/pizza.png'} alt={name} width={300} height={200}/>
             <h2 className="text-lg font-bold text-center mb-2">{name}</h2>

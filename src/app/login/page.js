@@ -7,6 +7,8 @@ export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
     const [loginInProgress, setLoginInProgress] = useState(false)
+
+    
     async function handleFormSubmit(ev){
         ev.preventDefault();
         setLoginInProgress(true);
@@ -28,8 +30,8 @@ export default function LoginPage() {
             <input type="password" name="password" placeholder="password" value={password}
              onChange={ev => setPassword(ev.target.value)}
               disabled={loginInProgress}/>
-
             <button disabled={loginInProgress} type="submit">Login</button>
+            
             <div className="text-center text-gray-500 my-4">
                 Or login with provider
             </div>

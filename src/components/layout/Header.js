@@ -13,11 +13,11 @@ function AuthLinks({status, userName}){
       <Link href={"/profile"} className="whitespace-nowrap">
         Hello, {userName}
       </Link>
-      <button
-        onClick={()=> signOut()} 
-        className="bg-primary text-white px-8 py-2 rounded-full" href={'/register'}>
-          <Link href={'/'}>Logout</Link>
-      </button>
+        <button
+          onClick={()=> signOut({callbackUrl: '/'})} 
+          className="bg-primary text-white px-8 py-2 rounded-full" href={'/register'}>
+            Logout
+        </button>
       </>
     )
   }
@@ -35,7 +35,7 @@ function AuthLinks({status, userName}){
 
 export default function Header() {
   const session = useSession();
-  // console.log(session);
+  console.log(session);
   const status = session?.status;
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
@@ -43,6 +43,9 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   if(userName && userName.includes(' ')){
     userName = userName.split(' ')[0];
+  }
+  if(userName && userName.includes('@')){
+    userName = userName.split('@')[0]
   }
   return (
     <>

@@ -35,7 +35,7 @@ export default function UserForm({user, onSave}) {
                     <label>First and Last name</label>
                     <input type="text" placeholder='First and Last name' value={userName} onChange={ev => setUserName(ev.target.value)}/>
                     <label>Email</label>
-                    <input type="email" value={user.email} disabled={true}/>
+                    <input type="email" value={user?.email} disabled={true}/>
                     <AddressInputs addressProps={{ phone, streetAddress, postalCode, city, country}}
                      setAddressProps={handleAddressChange}/>
 

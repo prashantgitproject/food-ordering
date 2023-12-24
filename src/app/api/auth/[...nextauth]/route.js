@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import NextAuth from "next-auth"
 import mongoose from "mongoose";
 import { User } from "@/models/User";
-import bcrypt from 'bcrypt'
+import bcrypt from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from '@/libs/mongoConnect'
@@ -30,15 +30,20 @@ export const authOptions = {
           const user = await User.findOne({email});
           const passwordOk = user && bcrypt.compareSync(password, user.password);
           
-
-          if(passwordOk){
+          console.log(passwordOk)
+          if(passwordOk && user){
+            console.log(user)
             return user
           }
           
+          console.log('password incorrect')
           return null
         }
       })
-    ]
+    ],
+    session: {
+      strategy: "jwt",
+    }
 }
 
 const handler = NextAuth(authOptions);
