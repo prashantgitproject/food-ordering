@@ -7,7 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from '@/libs/mongoConnect'
 
-export const authOptions = {
+  const authOptions = {
   secret: process.env.SECRET,
   adapter: MongoDBAdapter(clientPromise),
   providers: [
@@ -30,13 +30,10 @@ export const authOptions = {
           const user = await User.findOne({email});
           const passwordOk = user && bcrypt.compareSync(password, user.password);
           
-          console.log(passwordOk)
-          if(passwordOk && user){
-            console.log(user)
+          if(passwordOk){
             return user
           }
           
-          console.log('password incorrect')
           return null
         }
       })

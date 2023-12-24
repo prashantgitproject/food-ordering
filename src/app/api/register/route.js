@@ -8,7 +8,6 @@ export async function POST(req){
     const pass = body.password;
     if(!pass?.length || pass.length < 5){
         new Error('password must be of atleast 5 characters')
-        return false
     }
 
 
