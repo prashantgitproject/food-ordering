@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/api/auth/.js",
-    "src/app/api/auth/[...nextauth]/options.js"  ],
+    "src/app/auth/options.js"  ],
   "exclude": [
     "node_modules"
   ]
